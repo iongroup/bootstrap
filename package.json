@@ -1,7 +1,7 @@
 {
   "name": "bootstrap",
   "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
-  "version": "3.3.5-d1",
+  "version": "3.3.5-d2",
   "keywords": [
     "css",
     "less",
@@ -53,6 +53,7 @@
     "grunt-jscs": "~1.8.0",
     "grunt-saucelabs": "~8.6.1",
     "grunt-sed": "twbs/grunt-sed#v0.2.0",
+    "grunt-umd": "^3.0.0",
     "load-grunt-tasks": "~3.2.0",
     "markdown-it": "^4.2.1",
     "npm-shrinkwrap": "^200.4.0",

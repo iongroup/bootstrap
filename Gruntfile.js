@@ -136,6 +136,10 @@ module.exports = function (grunt) {
         src: '<%= concat.bootstrap.dest %>',
         dest: 'dist/js/<%= pkg.name %>.min.js'
       },
+      coreUmd: {
+        src: 'dist/js/<%= pkg.name %>-umd.js',
+        dest: 'dist/js/<%= pkg.name %>-umd.min.js'
+      },
       customize: {
         src: configBridge.paths.customizerJs,
         dest: 'docs/assets/js/customize.min.js'
@@ -425,6 +429,18 @@ module.exports = function (grunt) {
           }
         ]
       }
+    },
+
+    umd: {
+      dist: {
+        options: {
+          src: 'dist/js/<%= pkg.name %>.js',
+          dest: 'dist/js/<%= pkg.name %>-umd.js',
+          deps: {
+            'default': [{ 'jquery': 'jQuery' }]
+          }
+        }
+      }
     }
 
   });
@@ -471,7 +487,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test-js', ['jshint:core', 'jshint:test', 'jshint:grunt', 'jscs:core', 'jscs:test', 'jscs:grunt', 'qunit']);
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['concat', 'uglify:core', 'commonjs']);
+  grunt.registerTask('dist-js', ['concat', 'umd:dist', 'uglify:core', 'uglify:coreUmd', 'commonjs']);
 
   // CSS distribution task.
   grunt.registerTask('less-compile', ['less:compileCore', 'less:compileTheme']);
