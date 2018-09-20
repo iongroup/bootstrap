@@ -1,7 +1,7 @@
 {
   "name": "bootstrap",
   "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
-  "version": "3.3.5-d2",
+  "version": "3.3.5-d3",
   "keywords": [
     "css",
     "less",
@@ -14,6 +14,7 @@
   "homepage": "http://getbootstrap.com",
   "author": "Twitter, Inc.",
   "scripts": {
+    "build": "grunt dist",
     "test": "grunt test"
   },
   "style": "dist/css/bootstrap.css",

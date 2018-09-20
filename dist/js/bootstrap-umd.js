@@ -16,7 +16,7 @@
 }(this, function (jQuery) {
 
 /*!
- * Bootstrap v3.3.5-d1 (http://getbootstrap.com)
+ * Bootstrap v3.3.5-d3 (http://getbootstrap.com)
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under the MIT license
  */

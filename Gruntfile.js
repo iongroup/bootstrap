@@ -437,7 +437,11 @@ module.exports = function (grunt) {
           src: 'dist/js/<%= pkg.name %>.js',
           dest: 'dist/js/<%= pkg.name %>-umd.js',
           deps: {
-            'default': [{ 'jquery': 'jQuery' }]
+            'default': [
+              {
+                jquery: 'jQuery'
+              }
+            ]
           }
         }
       }
