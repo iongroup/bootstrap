@@ -3,36 +3,41 @@
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons
 
-.button-variant(@color; @background; @border) {
-  color: @color;
-  background-color: @background;
-  border-color: @border;
+.button-variant(@color-name; @background-name; @border-name) {
+  color: @@color-name;
+  background-color: @@background-name;
+  border-color: @@border-name;
+
+  @bg-name-d10: ~"_@{background-name}-d10";
+  @bg-name-d17: ~"_@{background-name}-d17";
+  @border-name-d12: ~"_@{border-name}-d12";
+  @border-name-d25: ~"_@{border-name}-d25";
 
   &:focus,
   &.focus {
-    color: @color;
-    background-color: darken(@background, 10%);
-    border-color: darken(@border, 25%);
+    color: @@color-name;
+    background-color: @@bg-name-d10;
+    border-color: @@border-name-d25;
   }
   &:hover {
-    color: @color;
-    background-color: darken(@background, 10%);
-    border-color: darken(@border, 12%);
+    color: @@color-name;
+    background-color: @@bg-name-d10;
+    border-color: @@border-name-d12;
   }
   &:active,
   &.active,
   .open > .dropdown-toggle& {
-    color: @color;
-    background-color: darken(@background, 10%);
+    color: @@color-name;
+    background-color: @@bg-name-d10;
     background-image: none;
-    border-color: darken(@border, 12%);
+    border-color: @@border-name-d12;
 
     &:hover,
     &:focus,
     &.focus {
-      color: @color;
-      background-color: darken(@background, 17%);
-      border-color: darken(@border, 25%);
+      color: @@color-name;
+      background-color: @@bg-name-d17;
+      border-color: @@border-name-d25;
     }
   }
   &.disabled,
@@ -41,14 +46,14 @@
     &:hover,
     &:focus,
     &.focus {
-      background-color: @background;
-      border-color: @border;
+      background-color: @@background-name;
+      border-color: @@border-name;
     }
   }
 
   .badge {
-    color: @background;
-    background-color: @color;
+    color: @@background-name;
+    background-color: @@color-name;
   }
 }
 
@@ -59,3 +64,33 @@
   line-height: @line-height;
   border-radius: @border-radius;
 }
+
+@_btn-default-bg-d10: darken(@btn-default-bg, 10%);
+@_btn-default-bg-d17: darken(@btn-default-bg, 17%);
+@_btn-default-border-d12: darken(@btn-default-border, 12%);
+@_btn-default-border-d25: darken(@btn-default-border, 25%);
+
+@_btn-primary-bg-d10: darken(@btn-primary-bg, 10%);
+@_btn-primary-bg-d17: darken(@btn-primary-bg, 17%);
+@_btn-primary-border-d12: darken(@btn-primary-border, 12%);
+@_btn-primary-border-d25: darken(@btn-primary-border, 25%);
+
+@_btn-success-bg-d10: darken(@btn-success-bg, 10%);
+@_btn-success-bg-d17: darken(@btn-success-bg, 17%);
+@_btn-success-border-d12: darken(@btn-success-border, 12%);
+@_btn-success-border-d25: darken(@btn-success-border, 25%);
+
+@_btn-info-bg-d10: darken(@btn-info-bg, 10%);
+@_btn-info-bg-d17: darken(@btn-info-bg, 17%);
+@_btn-info-border-d12: darken(@btn-info-border, 12%);
+@_btn-info-border-d25: darken(@btn-info-border, 25%);
+
+@_btn-warning-bg-d10: darken(@btn-warning-bg, 10%);
+@_btn-warning-bg-d17: darken(@btn-warning-bg, 17%);
+@_btn-warning-border-d12: darken(@btn-warning-border, 12%);
+@_btn-warning-border-d25: darken(@btn-warning-border, 25%);
+
+@_btn-danger-bg-d10: darken(@btn-danger-bg, 10%);
+@_btn-danger-bg-d17: darken(@btn-danger-bg, 17%);
+@_btn-danger-border-d12: darken(@btn-danger-border, 12%);
+@_btn-danger-border-d25: darken(@btn-danger-border, 25%);
