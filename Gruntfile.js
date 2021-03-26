@@ -35,11 +35,23 @@ module.exports = function (grunt) {
     });
   });
 
+  function stripVer(ver) {
+    var dashIdx = ver.indexOf('-');
+    if (dashIdx > 0) {
+      return ver.substr(0, dashIdx);
+    } else {
+      return ver;
+    }
+  }
+
   // Project configuration.
+  var pkg = grunt.file.readJSON('package.json');
+  pkg.version = stripVer(pkg.version);
+
   grunt.initConfig({
 
     // Metadata.
-    pkg: grunt.file.readJSON('package.json'),
+    pkg: pkg,
     banner: '/*!\n' +
             ' * Bootstrap v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
             ' * Copyright 2011-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
